@@ -9,17 +9,17 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.leah.myapplication.databinding.ActivityMainBinding
+import com.leah.myapplication.repository.RecipeDbHelper
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+    companion object {
+        lateinit var dbHelper: RecipeDbHelper
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        dbHelper = RecipeDbHelper(this) // sqlite db helper intiaLlize with the mainactivity context
         setContentView(R.layout.activity_main)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-
         val navView: BottomNavigationView = findViewById(R.id.nav_view)//.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -30,7 +30,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
             )
         )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+//      setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        dbHelper.close()
+    }
+
 }

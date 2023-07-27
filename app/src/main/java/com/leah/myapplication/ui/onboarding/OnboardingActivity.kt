@@ -42,7 +42,7 @@ class OnboardingActivity : AppCompatActivity() {
 
                 nextTextButton.setOnClickListener {
                     Toast.makeText(
-                        this, "I knew you were Awesome !! ",
+                        this, "GOOD FOOD GOOOD MOOOD.. ",
                         Toast.LENGTH_SHORT
                     ).show()
                     val intent =  Intent(this@OnboardingActivity,
