@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    tools:context=".ui.addrecipe.RecipeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_shade"
+            android:textSize="24sp"
+            android:textStyle="bold"  />
+        <!--    recipe details-->
+        <!--meal type >breakfast, lunch , aupper, snack -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:text="Select the Meal-type"
+            android:textColor="#646464"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <RadioGroup
+            android:id="@+id/mealType"
+            style="@style/ThemeOverlay.App.RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:useMaterialThemeColors="false">
+
+            <RadioButton
+                android:id="@+id/Breakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="16dp"
+                android:text="Breakfast" />
+
+            <RadioButton
+                android:id="@+id/Lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="16dp"
+                android:text="Lunch" />
+
+            <RadioButton
+                android:id="@+id/Supper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"
+                android:text="Supper" />
+            <RadioButton
+                android:id="@+id/Snack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"
+                android:text="Snack" />
+        </RadioGroup>
+        <!--number of people -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:text="Enter Number Of People it could serve"
+                android:textColor="#646464"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextDecimalNumber"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:inputType="numberDecimal"
+                android:layout_marginHorizontal="16dp"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--    difficulty level-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:text="Select the level of difficulty"
+            android:textColor="#646464"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <RadioGroup
+            android:id="@+id/difficultyLevel"
+            style="@style/ThemeOverlay.App.RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            app:useMaterialThemeColors="false">
+
+            <RadioButton
+                android:id="@+id/Advanced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginHorizontal="16dp"
+                android:text="Advanced" />
+
+
+            <RadioButton
+                android:id="@+id/Intermediate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"
+                android:text="Intermediate" />
+            <RadioButton
+                android:id="@+id/Beginner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="12sp"
+                android:text="Beginner" />
+        </RadioGroup>
+        <TextView
+            android:id="@+id/ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_shade"
+            android:textSize="24sp"
+            android:textStyle="bold"  />
+        <!--    ingredients  meal type-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:text="Enter Ingredients"
+            android:textColor="#646464"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/preparations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_shade"
+            android:textSize="24sp"
+            android:textStyle="bold"  />
+
+        <!--    add ingredients -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <!--    preparation-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:text="Enter Prepraration Steps"
+            android:textColor="#646464"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
+
+</LinearLayout>
