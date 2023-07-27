@@ -36,7 +36,8 @@
             android:textSize="16sp"
             android:layout_marginHorizontal="17dp"
             android:layout_marginVertical="10dp"
-            android:textColor="#808080"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-thin"
             android:textStyle="normal"
             android:text="Embark on a delightful foodie adventure with us! Try our easy-to-follow recipes and share the joy of cooking with your loved ones. Get ready to savor every bite!"/>
     </LinearLayout>

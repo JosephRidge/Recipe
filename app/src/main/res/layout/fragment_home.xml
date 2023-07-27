@@ -32,7 +32,7 @@
     android:background="@color/purple_shade"
     android:backgroundTint="@color/purple_shade"
     android:layout_height="48dp"
-    android:layout_gravity="bottom"
+    android:textAlignment="center"
     android:contentDescription="@string/add_new_recipe"
     android:src="@drawable/baseline_add_24"/>
 

@@ -35,5 +35,9 @@
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
+    <style name="ThemeOverlay.App.RadioButton" parent="">
+        <item name="colorOnSurface">@color/purple_shade</item>
+        <item name="colorSecondary">@color/white</item>
+    </style>
 
 </resources>
