@@ -28,10 +28,21 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+//        top text - Our Recipes
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+/*
+* Add new recipe FAB
+*  -> launch recipe form
+*  -> save or load to sqlit DB
+*  -> refresh on the home page of the list
+* */
+
+
+
         return root
     }
 

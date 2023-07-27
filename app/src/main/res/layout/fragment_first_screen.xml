@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.onboarding.screens.FirstScreen.FirstScreenFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+<!--        image -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/page_one"/>
+<!--        title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_shade"
+            android:text="Welcome to Our Delicious Recipes"/>
+<!--        sub-title-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginHorizontal="17dp"
+            android:layout_marginVertical="10dp"
+            android:textColor="#808080"
+            android:text="Indulge in a culinary journey with our mouthwatering recipes. From savory delights to sweet temptations, explore a world of flavors that will tickle your taste buds"/>
+    </LinearLayout>
+
+</FrameLayout>
