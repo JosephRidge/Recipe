@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Recipe</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Explore</string>
+    <string name="title_notifications">Categories</string>
+    <string name="add_new_recipe">Add New Recipe</string>
 </resources>
