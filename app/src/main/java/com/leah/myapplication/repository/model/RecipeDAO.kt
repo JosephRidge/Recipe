@@ -6,7 +6,7 @@ import com.leah.myapplication.repository.RecipeContract
 import com.leah.myapplication.repository.RecipeDbHelper
 
 class RecipeDAO (context: Context) {
-        private val dbHelper = RecipeDbHelper(context)
+       /* private val dbHelper = RecipeDbHelper(context)
 
         fun addRecipe(recipe: Recipe) {
             val db = dbHelper.writableDatabase
@@ -45,4 +45,4 @@ class RecipeDAO (context: Context) {
 
             db.close()
         }
-    }
+ */   }
