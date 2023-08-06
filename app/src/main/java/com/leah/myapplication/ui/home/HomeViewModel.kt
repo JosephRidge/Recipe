@@ -10,4 +10,8 @@ class HomeViewModel : ViewModel() {
         value = "Our Recipes"
     }
     val text: LiveData<String> = _text
+
+    fun addData(){
+
+    }
 }

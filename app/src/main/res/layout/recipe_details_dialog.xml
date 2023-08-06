@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- list_item_recipe.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:paddingVertical="4dp"
+    android:paddingHorizontal="4dp"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <TextView
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:layout_gravity="end"
+               android:text="close"
+               android:layout_marginVertical="2dp"
+               android:layout_marginHorizontal="16dp"
+               android:textColor="@color/white"
+               android:background="@color/purple_shade"
+               android:paddingHorizontal="8dp"
+               android:focusable="true"
+               android:clickable="true"
+               android:paddingVertical="2dp"
+               android:id="@+id/closeButton"
+               />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginHorizontal="16dp"
+               android:orientation="horizontal">
+               <!--     logo -->
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="10dp"
+                   android:layout_gravity="center"
+                   android:src="@drawable/dish"/>
+               <!--   about recipe   -->
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:paddingHorizontal="10dp"
+                   android:orientation="vertical">
+                   <!-- Recipe Name -->
+                   <TextView
+                       android:id="@+id/recipe"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="24sp"
+                       android:textStyle="bold"
+                       android:layout_marginVertical="8dp"
+                       android:text="Recipe Details"
+                       android:textColor="@color/purple_shade"
+                       />
+                   <!--        time-->
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginVertical="4dp"
+                       android:layout_marginHorizontal="4dp"
+                       android:orientation="horizontal">
+
+                       <!--            icon-->
+                       <ImageView
+                           android:layout_width="16dp"
+                           android:layout_height="16dp"
+                           android:layout_gravity="center"
+                           android:layout_marginHorizontal="4dp"
+                           android:src="@drawable/prep_time"/>
+                       <!--            text-->
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="21dp"
+                           android:layout_marginHorizontal="8dp"
+                           android:text="Preparation time:"/>
+                       <!--            value-->
+                       <TextView
+                           android:id="@+id/timeTaken"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/pink_shade"
+                           android:text="2HRS"/>
+
+                   </LinearLayout>
+                   <!--servings-->
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="4dp"
+                       android:orientation="horizontal">
+
+                       <!--            icon-->
+                       <ImageView
+                           android:layout_width="16dp"
+                           android:layout_height="16dp"
+                           android:layout_marginHorizontal="4dp"
+                           android:layout_gravity="center"
+                           android:src="@drawable/feeds_no_people"/>
+                       <!--            text-->
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="21dp"
+                           android:layout_marginHorizontal="8dp"
+                           android:text="Servings:"/>
+                       <!--            value-->
+                       <TextView
+                           android:id="@+id/servings"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/pink_shade"
+                           android:text="10"/>
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginHorizontal="4dp"
+                           android:text="plates"/>
+                   </LinearLayout>
+
+                   <!--        difficulty level-->
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="4dp"
+                       android:layout_marginVertical="4dp"
+                       android:orientation="horizontal">
+
+                       <!--            icon-->
+                       <ImageView
+                           android:layout_width="16dp"
+                           android:layout_height="16dp"
+                           android:layout_gravity="center"
+                           android:layout_marginHorizontal="4dp"
+                           android:src="@drawable/difficulty_level"/>
+                       <!--            text-->
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="21dp"
+                           android:layout_marginHorizontal="8dp"
+                           android:text="Level:"/>
+                       <!--            value-->
+                       <TextView
+                           android:id="@+id/difficultyLevel"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/pink_shade"
+                           android:text="beginner"/>
+                   </LinearLayout>
+                   <!--        time to eat it -->
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginHorizontal="4dp"
+                       android:orientation="horizontal">
+
+                       <!--            icon-->
+                       <ImageView
+                           android:layout_width="14dp"
+                           android:layout_height="14dp"
+                           android:layout_gravity="center"
+                           android:layout_marginHorizontal="4dp"
+                           android:src="@drawable/meal_time"/>
+                       <!--            text-->
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="21dp"
+                           android:layout_marginHorizontal="8dp"
+                           android:text="Best for:"/>
+                       <!--            value-->
+                       <TextView
+                           android:id="@+id/mealTime"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/pink_shade"
+                           android:text="lunch"/>
+                   </LinearLayout>
+                   <!--        -->
+               </LinearLayout>
+           </LinearLayout>
+
+
+           <!--    ingredients-->
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="21dp"
+               android:layout_marginTop="4dp"
+               android:layout_marginHorizontal="8dp"
+               android:textSize="20sp"
+               android:textColor="@color/purple_shade"
+               android:text="Ingredients:"/>
+           <TextView
+               android:id="@+id/ingredients"
+               android:layout_width="wrap_content"
+               android:layout_height="21dp"
+               android:layout_marginHorizontal="8dp"
+               android:layout_marginTop="4dp"
+               android:textSize="14sp"
+               android:fontFamily="sans-serif-light"
+               android:textColor="@color/pink_shade"
+               android:text="Ingredients:"/>
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:layout_marginVertical="4dp"
+               />
+           <!--    preparations steps-->
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="21dp"
+               android:layout_marginTop="4dp"
+               android:textSize="20sp"
+               android:layout_marginHorizontal="8dp"
+               android:textColor="@color/purple_shade"
+               android:text="Preparation Steps:"/>
+           <TextView
+               android:id="@+id/prepSteps"
+               android:layout_width="wrap_content"
+               android:layout_height="21dp"
+               android:layout_marginHorizontal="8dp"
+               android:layout_marginTop="4dp"
+               android:textSize="14sp"
+               android:textColor="@color/pink_shade"
+               android:fontFamily="sans-serif-light"
+               android:text="Ingredients:"/>
+
+       </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
