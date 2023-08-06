@@ -17,8 +17,8 @@ import kotlin.reflect.KClass
 abstract class RecipeDatabase : RoomDatabase() {
 
     abstract fun recipeDao(): RecipeDao
-    abstract fun ingredientDao(): IngredientDao
-    abstract fun preparationStepDao(): PreparationStepDao
+//    abstract fun ingredientDao(): IngredientDao
+//    abstract fun preparationStepDao(): PreparationStepDao
 
     companion object {
         @Volatile

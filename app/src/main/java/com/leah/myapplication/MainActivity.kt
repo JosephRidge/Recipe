@@ -34,15 +34,15 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_new_recipe
             )
         )
-        val addRecipe:FloatingActionButton = findViewById(R.id.addRecipe)
+      /*  val addRecipe:FloatingActionButton = findViewById(R.id.addRecipe)
         addRecipe.setOnClickListener {
             // navigate to the next fragment
             navController.navigate(R.id.addNewRecipe)
 
-        }
+        } */
         navView.setupWithNavController(navController)
     }
     override fun onDestroy() {

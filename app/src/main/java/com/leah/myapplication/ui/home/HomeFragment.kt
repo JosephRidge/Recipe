@@ -4,15 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
+import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.leah.myapplication.R
 import com.leah.myapplication.databinding.FragmentHomeBinding
+import com.leah.myapplication.repository.adapters.RecipeAdapter
 import com.leah.myapplication.repository.dao.RecipeDao
 import com.leah.myapplication.repository.db.RecipeDatabase
 import com.leah.myapplication.repository.entity.IngredientEntity
 import com.leah.myapplication.repository.entity.PreparationStepEntity
 import com.leah.myapplication.repository.entity.RecipeEntity
+import com.leah.myapplication.ui.addrecipe.RecipeFragment
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -21,6 +35,8 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var recipeDao: RecipeDao
+    private lateinit var loader:ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,77 +48,60 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        loader = root.findViewById(R.id.loader)
+        loader.visibility = View.VISIBLE
 
-//        top text - Our Recipes
+        val database = Room.databaseBuilder(
+            requireContext(),
+            RecipeDatabase::class.java,
+            "recipe_database"
+        ).build()
+
+        recipeDao = database.recipeDao()
+
+//      top text - Our Recipes
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-        // navigation
+        val listView: ListView = root.findViewById(R.id.recipes)
 
 
-        /*
-        * Add new recipe FAB
-        *  -> launch recipe form
-        *  -> save or load to sqlite DB
-        *  -> refresh on the home page of the list
-        * */
-        /*
-        * DB instance
-        * */
-        val database = activity?.let { RecipeDatabase.getDatabase(it.applicationContext) }
-        val recipeDao = database?.recipeDao()
-
+        viewLifecycleOwner.lifecycleScope.launch {
+            val recipes=  recipeDao.getAllRecipes()
+            println("===> $recipes")
+//            adapter. = recipes
+            if(recipes.isNotEmpty()){
+                loader.visibility = View.GONE
+                Toast.makeText(
+                    context, " Loading Recipes",
+                    Toast.LENGTH_LONG
+                ).show()
+            }else{
+                loader.visibility = View.GONE
+                Toast.makeText(
+                    context, "No Recipes available",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            val adapter = RecipeAdapter(requireContext(),R.id.recipes,recipes) // Initialize with empty list, update later
+            listView.adapter = adapter
+            adapter.notifyDataSetChanged()
+        }
+        // set adapter then load to listview
         return root
     }
 
-    suspend fun addRecipe(recipeDao:RecipeDao){
+    private fun getAllRecipes(listView: ListView){
 
-        // dummy data
-        val newRecipe = RecipeEntity(
-            name = "Spaghetti Bolognese",
-            mealType = "Dinner",
-            serves = 4,
-            difficulty = "Intermediate"
-        )
-
-        recipeDao.insertRecipe(newRecipe)
-
-
-// Assuming you have a list of ingredients and preparation steps for the new recipe
-        val ingredientsList: List<IngredientEntity> = listOf()// ...
-        val preparationStepsList: List<PreparationStepEntity> = // ...
-
-// Insert ingredients for the new recipe
-            ingredientsList.forEach { ingredient ->
-                ingredientDao.insertIngredient(ingredient.copy(recipeId = newRecipe.recipeId))
-            }
-
-// Insert preparation steps for the new recipe
-        preparationStepsList.forEach { step ->
-            preparationStepDao.insertPreparationStep(step.copy(recipeId = newRecipe.recipeId))
+        // Run the insertion in a coroutine
+        viewLifecycleOwner.lifecycleScope.launch {
+           val recipes=  recipeDao.getAllRecipes()
+            println("===> $recipes")
+//            adapter. = recipes
+            val adapter = RecipeAdapter(requireContext(),R.id.recipes,recipes) // Initialize with empty list, update later
+            listView.adapter = adapter
+            adapter.notifyDataSetChanged()
         }
-
-    }
-
-
-    suspend fun getRecipes(database:RecipeDatabase): List<RecipeEntity> {
-        val recipes: List<RecipeEntity> = database.recipeDao().getAllRecipes();
-        return recipes
-    }
-
-    suspend fun getIngredients(database:RecipeDatabase, recipId:Long): List<IngredientEntity> {
-        val ingredients: List<IngredientEntity> = database.ingredientDao().getIngredientsForRecipe(recipId);
-        return ingredients
-    }
-
-    /*suspend fun get(database:RecipeDatabase, recipId:Long): List<IngredientEntity> {
-        val ingredients: List<IngredientEntity> = database.ingredientDao().getIngredientsForRecipe(recipId);
-        return ingredients
-    } */
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

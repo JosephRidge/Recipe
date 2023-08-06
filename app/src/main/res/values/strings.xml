@@ -4,4 +4,8 @@
     <string name="title_dashboard">Explore</string>
     <string name="title_notifications">Categories</string>
     <string name="add_new_recipe">Add New Recipe</string>
+    <string name="preparation_steps">Preparation Steps</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="try_cooking_this">Try Cooking This</string>
 </resources>
